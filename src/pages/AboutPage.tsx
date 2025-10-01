@@ -1,10 +1,7 @@
 import { Target, Heart, Award, Calendar, MapPin, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface AboutPageProps {
-  onPageChange: (page: string) => void;
-}
-
-export default function AboutPage({ onPageChange }: AboutPageProps) {
+export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
@@ -244,18 +241,18 @@ export default function AboutPage({ onPageChange }: AboutPageProps) {
             The Master Mind Motivator framework isn't just my story - it's your roadmap to systematic excellence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => onPageChange('book')}
+            <Link
+              to="/book"
               className="bg-orange-600 hover:bg-orange-700 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               Get The Book
-            </button>
-            <button
-              onClick={() => onPageChange('contact')}
+            </Link>
+            <Link
+              to="/contact"
               className="border border-slate-600 hover:border-orange-400 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
             >
               Speaking Inquiry
-            </button>
+            </Link>
           </div>
         </div>
       </section>

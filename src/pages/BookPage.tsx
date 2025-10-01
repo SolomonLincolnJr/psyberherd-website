@@ -325,12 +325,12 @@ export default function BookPage({ onPageChange }: BookPageProps) {
             >
               Get Chapter One Free
             </button>
-            <button
-              onClick={() => onPageChange('contact')}
+            <Link
+              to="/contact"
               className="border border-slate-600 hover:border-orange-400 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
             >
               Speaking Inquiry
-            </button>
+            </Link>
           </div>
 
           <p className="text-slate-400 mt-8 text-sm">

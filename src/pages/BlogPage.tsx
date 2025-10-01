@@ -1,11 +1,8 @@
 import { Search, Calendar, Clock, User, ArrowRight, Target, Brain, Shield } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-interface BlogPageProps {
-  onPageChange: (page: string) => void;
-}
-
-export default function BlogPage({ onPageChange }: BlogPageProps) {
+export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -328,18 +325,18 @@ export default function BlogPage({ onPageChange }: BlogPageProps) {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => onPageChange('book')}
+            <Link
+              to="/book"
               className="bg-orange-600 hover:bg-orange-700 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               Get The Book
-            </button>
-            <button
-              onClick={() => onPageChange('contact')}
+            </Link>
+            <Link
+              to="/contact"
               className="border border-slate-600 hover:border-orange-400 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
             >
               Speaking Inquiry
-            </button>
+            </Link>
           </div>
         </div>
       </section>

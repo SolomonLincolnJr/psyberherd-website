@@ -1,10 +1,7 @@
 import { Target, Brain, Zap, Shield, Calendar, CheckCircle, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface MethodPageProps {
-  onPageChange: (page: string) => void;
-}
-
-export default function MethodPage({ onPageChange }: MethodPageProps) {
+export default function MethodPage() {
   return (
     <>
       {/* Hero Section */}
@@ -309,19 +306,19 @@ export default function MethodPage({ onPageChange }: MethodPageProps) {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button
-              onClick={() => onPageChange('book')}
+            <Link
+              to="/book"
               className="bg-orange-600 hover:bg-orange-700 text-white font-bold px-8 py-3 rounded-lg transition-colors flex items-center gap-2 group"
             >
               Get the Complete Framework
               <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
-            </button>
-            <button
-              onClick={() => onPageChange('contact')}
+            </Link>
+            <Link
+              to="/contact"
               className="border border-slate-600 hover:border-orange-400 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
             >
               Speaking & Workshops
-            </button>
+            </Link>
           </div>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">

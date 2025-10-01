@@ -1,11 +1,8 @@
 import { Mail, MessageCircle, Mic, Users, CheckCircle, Send, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-interface ContactPageProps {
-  onPageChange: (page: string) => void;
-}
-
-export default function ContactPage({ onPageChange }: ContactPageProps) {
+export default function ContactPage() {
   const [activeForm, setActiveForm] = useState<'general' | 'speaking'>('general');
   const [formData, setFormData] = useState({
     name: '',
@@ -432,13 +429,13 @@ export default function ContactPage({ onPageChange }: ContactPageProps) {
               <Mic size={18} />
               Book Speaking Engagement
             </button>
-            <button
-              onClick={() => onPageChange('book')}
+            <Link
+              to="/book"
               className="border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-orange-600 transition-colors flex items-center gap-2"
             >
               Get The Book
               <ArrowRight size={18} />
-            </button>
+            </Link>
           </div>
 
           <p className="text-orange-100 text-sm mt-6">

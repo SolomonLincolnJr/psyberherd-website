@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -8,30 +8,18 @@ import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-
-  const renderCurrentPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <HomePage onPageChange={setCurrentPage} />;
-      case 'about':
-        return <AboutPage onPageChange={setCurrentPage} />;
-      case 'method':
-        return <MethodPage onPageChange={setCurrentPage} />;
-      case 'book':
-        return <BookPage onPageChange={setCurrentPage} />;
-      case 'blog':
-        return <BlogPage onPageChange={setCurrentPage} />;
-      case 'contact':
-        return <ContactPage onPageChange={setCurrentPage} />;
-      default:
-        return <HomePage onPageChange={setCurrentPage} />;
-    }
-  };
-
   return (
-    <Layout currentPage={currentPage} onPageChange={setCurrentPage}>
-      {renderCurrentPage()}
-    </Layout>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/method" element={<MethodPage />} />
+          <Route path="/book" element={<BookPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
